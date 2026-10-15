@@ -71,6 +71,27 @@ public class Matriz {
     }
 
     /**
+     * Suma esta matriz con otra de las mismas dimensiones.
+     *
+     * @param otra matriz que se va a sumar
+     * @return una nueva matriz con la suma, o null si no se puede realizar
+     */
+    public Matriz sumar(Matriz otra) {
+        if (otra == null || filas != otra.filas || columnas != otra.columnas) {
+            return null;
+        }
+
+        double[][] suma = new double[filas][columnas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                suma[i][j] = datos[i][j] + otra.datos[i][j];
+            }
+        }
+
+        return new Matriz(suma);
+    }
+
+    /**
      * Devuelve un elemento de la matriz.
      */
     public double getElemento(int fila, int columna) {
