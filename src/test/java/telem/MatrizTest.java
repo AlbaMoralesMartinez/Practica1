@@ -188,6 +188,44 @@ public class MatrizTest {
     }
 
     @Test
+    public void sumarEstaticoDevuelveLaSumaDeDosMatrices() {
+        Matriz primera = new Matriz(new double[][] {
+            { 1.0, 2.0 },
+            { 3.0, 4.0 }
+        });
+        Matriz segunda = new Matriz(new double[][] {
+            { 5.0, 6.0 },
+            { 7.0, 8.0 }
+        });
+
+        Matriz resultado = Matriz.sumar(primera, segunda);
+
+        assertEquals(6.0, resultado.getElemento(0, 0), 1e-9);
+        assertEquals(8.0, resultado.getElemento(0, 1), 1e-9);
+        assertEquals(10.0, resultado.getElemento(1, 0), 1e-9);
+        assertEquals(12.0, resultado.getElemento(1, 1), 1e-9);
+    }
+
+    @Test
+    public void sumarEstaticoDevuelveNullSiAlgunaMatrizEsNull() {
+        Matriz matriz = new Matriz(new double[][] { { 1.0 } });
+
+        assertEquals(null, Matriz.sumar(null, matriz));
+        assertEquals(null, Matriz.sumar(matriz, null));
+    }
+
+    @Test
+    public void sumarEstaticoDevuelveNullSiLasDimensionesSonDistintas() {
+        Matriz primera = new Matriz(new double[][] { { 1.0, 2.0 } });
+        Matriz segunda = new Matriz(new double[][] {
+            { 3.0 },
+            { 4.0 }
+        });
+
+        assertEquals(null, Matriz.sumar(primera, segunda));
+    }
+
+    @Test
     public void getElementoDevuelveElValorEnLosLimites() {
         Matriz matriz = new Matriz(new double[][] {
             { 1.5, 2.5 },

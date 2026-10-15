@@ -92,6 +92,17 @@ public class Matriz {
     }
 
     /**
+     * Suma dos matrices de las mismas dimensiones.
+     *
+     * @param primera primera matriz que se va a sumar
+     * @param segunda segunda matriz que se va a sumar
+     * @return una nueva matriz con la suma, o null si no se puede realizar
+     */
+    public static Matriz sumar(Matriz primera, Matriz segunda) {
+        return primera == null ? null : primera.sumar(segunda);
+    }
+
+    /**
      * Devuelve un elemento de la matriz.
      */
     public double getElemento(int fila, int columna) {
