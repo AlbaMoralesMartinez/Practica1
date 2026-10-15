@@ -226,6 +226,25 @@ public class MatrizTest {
     }
 
     @Test
+    public void traspuestaIntercambiaFilasYColumnas() {
+        Matriz matriz = new Matriz(new double[][] {
+            { 1.0, 2.0, 3.0 },
+            { 4.0, 5.0, 6.0 }
+        });
+
+        Matriz resultado = matriz.traspuesta();
+
+        assertArrayEquals(new int[] { 3, 2 }, resultado.getDimension());
+        assertEquals(1.0, resultado.getElemento(0, 0), 1e-9);
+        assertEquals(4.0, resultado.getElemento(0, 1), 1e-9);
+        assertEquals(2.0, resultado.getElemento(1, 0), 1e-9);
+        assertEquals(5.0, resultado.getElemento(1, 1), 1e-9);
+        assertEquals(3.0, resultado.getElemento(2, 0), 1e-9);
+        assertEquals(6.0, resultado.getElemento(2, 1), 1e-9);
+        assertArrayEquals(new int[] { 2, 3 }, matriz.getDimension());
+    }
+
+    @Test
     public void getElementoDevuelveElValorEnLosLimites() {
         Matriz matriz = new Matriz(new double[][] {
             { 1.5, 2.5 },

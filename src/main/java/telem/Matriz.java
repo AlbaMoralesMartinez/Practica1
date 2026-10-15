@@ -103,6 +103,22 @@ public class Matriz {
     }
 
     /**
+     * Devuelve una nueva matriz traspuesta.
+     *
+     * @return la matriz traspuesta
+     */
+    public Matriz traspuesta() {
+        double[][] resultado = new double[columnas][filas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                resultado[j][i] = datos[i][j];
+            }
+        }
+
+        return new Matriz(resultado);
+    }
+
+    /**
      * Devuelve un elemento de la matriz.
      */
     public double getElemento(int fila, int columna) {
