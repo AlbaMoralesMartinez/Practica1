@@ -119,6 +119,16 @@ public class Matriz {
     }
 
     /**
+     * Devuelve la matriz traspuesta de la matriz indicada.
+     *
+     * @param matriz matriz que se va a trasponer
+     * @return la matriz traspuesta, o null si la matriz es null
+     */
+    public static Matriz traspuesta(Matriz matriz) {
+        return matriz == null ? null : matriz.traspuesta();
+    }
+
+    /**
      * Devuelve un elemento de la matriz.
      */
     public double getElemento(int fila, int columna) {
